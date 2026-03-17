@@ -8,6 +8,24 @@ with sync_playwright() as p:
 
     page.goto('https://demo.automationtesting.in/Alerts.html')
 
+
+    # MOUSE ACTIONS
+
+    # To hover over dropdown
     page.wait_for_selector('//a[text()="SwitchTo"]').hover()
+
+    #To click on element
+    page.wait_for_selector('//a[text()="SwitchTo"]').click()
+
+    # To double-click on element
+    page.wait_for_selector('//a[text()="SwitchTo"]').dblclick()
+
+    # To right-click on element
+    page.wait_for_selector('//a[text()="SwitchTo"]').click(button='right')
+
+
+    # shift click
+    page.wait_for_selector('//a[text()="SwitchTo"]').click(modifiers=["Shift"])
+
 
     page.wait_for_timeout(2000)
