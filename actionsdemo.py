@@ -28,4 +28,12 @@ with sync_playwright() as p:
     page.wait_for_selector('//a[text()="SwitchTo"]').click(modifiers=["Shift"])
 
 
+    # KEY-BOARD ACTIONS
+
+    # A-Z,0-9, F1-F12, All special character, ArrowRight, ArrowDown,Pageup,Enter,Control, Comand
+
+    page.wait_for_selector('//a[text()="SwitchTo"]').press("A")
+
+    page.wait_for_selector('//a[text()="SwitchTo"]').press("$")
+
     page.wait_for_timeout(2000)
