@@ -10,8 +10,16 @@ with sync_playwright() as p:
 
     # Store multiple elements using list
 
-    elements = page.query_selector_all('b')
+    # elements = page.query_selector_all('b')
+    # print(len(elements))
+    # for i in elements:
+    #     print(i.text_content())
+    # page.wait_for_timeout(5000)
+
+    # For anchor tag
+
+    elements = page.query_selector_all('a')
     print(len(elements))
     for i in elements:
-        print(i.text_content())
+        print(i.get_attribute('href'))
     page.wait_for_timeout(5000)
