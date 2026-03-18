@@ -5,7 +5,7 @@ with sync_playwright() as p:
 
     # Video directory
     context = browser.new_context(record_video_dir='./videos')
-    page = browser.new_page()
+    page = context.new_page()
 
     page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     page.wait_for_selector('//input[@name="username"]').fill('Admin')
@@ -16,6 +16,10 @@ with sync_playwright() as p:
 
     page.wait_for_selector('//button[@type="submit"]').click()
 
+    page.wait_for_timeout(3000)
+
     page.screenshot(path='./screenshots/homepage.png')
+
+    page.wait_for_timeout(3000)
 
     context.close()
